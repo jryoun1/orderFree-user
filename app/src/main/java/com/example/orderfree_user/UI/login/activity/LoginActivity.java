@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,10 @@ import com.example.orderfree_user.UI.login.data.LoginData;
 import com.example.orderfree_user.UI.login.data.LoginResponse;
 import com.example.orderfree_user.network.RetrofitClient;
 import com.example.orderfree_user.network.ServiceApi;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView mFindIdPassword;
     private CheckBox mAutoLogin;
     private ServiceApi service;
+    private String deviceToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +68,20 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("FCM Log", "getInstanceId failed", task.getException());
+                            return;
+                        }
+                        deviceToken = task.getResult().getToken();
+                        Log.d("FCM Log", "FCM 토큰: " + deviceToken);
+                        //Toast.makeText(LoginActivity.this, deviceToken, Toast.LENGTH_SHORT).show();
+                    }
+                });
 
         mFindIdPassword.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -145,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         } else {
-            startLogin(new LoginData(email, password));
+            startLogin(new LoginData(email, password,deviceToken));
         }
     }
 
