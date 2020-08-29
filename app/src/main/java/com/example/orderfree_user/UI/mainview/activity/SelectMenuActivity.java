@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.orderfree_user.R;
+import com.example.orderfree_user.UI.login.activity.MainActivity;
 import com.example.orderfree_user.network.RetrofitClient;
 import com.example.orderfree_user.network.ServiceApi;
 import com.example.orderfree_user.UI.mainview.data.BasketDataRequest;
@@ -24,6 +25,8 @@ import com.example.orderfree_user.UI.mainview.data.SelectMenuData;
 import com.example.orderfree_user.UI.mainview.data.SelectMenuDataRequest;
 import com.example.orderfree_user.UI.mainview.data.SelectMenuDataResponse;
 
+
+import org.w3c.dom.Text;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,7 +46,7 @@ public class SelectMenuActivity extends AppCompatActivity {
     private Button minusButton;
     private Button addButton;
     private SelectMenuData menuDetail;
-
+    private TextView mGobackView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class SelectMenuActivity extends AppCompatActivity {
         addButton = (Button)findViewById(R.id.add_btn);
         menuCount = (TextView)findViewById(R.id.menu_count);
         menuCount.setText("1");
+        mGobackView=(TextView)findViewById(R.id.goback);
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
         Intent intent = getIntent();
@@ -65,6 +69,17 @@ public class SelectMenuActivity extends AppCompatActivity {
 
         //메뉴이름, 메뉴 설명, 메뉴 사진 , 메뉴 가격  받아오기
         getData(new SelectMenuDataRequest(menuName, storeName));
+
+        mGobackView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mGobackView.isClickable()){
+                    Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
 
         minusButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,12 +156,12 @@ public class SelectMenuActivity extends AppCompatActivity {
 
     public void bindMenuInfo(){
         textViewMenuName = (TextView)findViewById(R.id.textView_menuName);
-        imageViewMenuImage =(ImageView)findViewById(R.id.imageView_menuPicture);
+        ImageView image = findViewById(R.id.imageView_menuPicture);
         textViewMenuInfo = (TextView)findViewById(R.id.textView_menuInfo);
         menuPrice = (TextView)findViewById(R.id.textView_menuprice);
 
         textViewMenuName.setText(menuDetail.getMenuName());
-        Glide.with(this).load(menuDetail.getImgURL()).into(imageViewMenuImage);
+        Glide.with(this).load("https://valueup.s3.ap-northeast-2.amazonaws.com/"+menuDetail.getImgURL()).into(image);
         menuPrice.setText(String.valueOf(menuDetail.getPrice()));
         textViewMenuInfo.setText(menuDetail.getInfo());
     }

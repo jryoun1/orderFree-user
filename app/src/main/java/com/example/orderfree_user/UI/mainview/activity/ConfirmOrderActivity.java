@@ -28,7 +28,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class ConfirmOrderActivity extends AppCompatActivity {
     private ServiceApi service;
     private TextView storeName;
@@ -40,7 +39,6 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     private TextView goBack;
     private Button confirmButton;
     List<ConfirmOrderData> list=new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +67,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(goBack.isClickable()){
-                    Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), com.example.orderfree_user.UI.mainview.activity.MenuActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -86,7 +84,6 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void getBasketData(ConfirmOrderDataRequest data){
         service.confirmOrder(data).enqueue(new Callback<ConfirmOrderDataResponse>() {
@@ -108,8 +105,6 @@ public class ConfirmOrderActivity extends AppCompatActivity {
 //
 //                        }
 //                    });
-
-
                     menuPrice.setText(Integer.toString(getItemTotalPrice(list)));
                     menuCount.setText(Integer.toString(getItemTotalCount(list)));
                     adapter.notifyDataSetChanged();

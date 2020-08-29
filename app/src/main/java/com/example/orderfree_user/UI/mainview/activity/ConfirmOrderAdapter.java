@@ -68,16 +68,16 @@ public class ConfirmOrderAdapter extends RecyclerView.Adapter<ConfirmOrderAdapte
             this.textView_price=itemView.findViewById(R.id.price_menu);
             this.textView_count=itemView.findViewById(R.id.count_menu);
 
-            itemView.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    int pos = getAdapterPosition();
-                    Intent intent = new Intent(v.getContext(),DeleteShoppingLIstPopupActivity.class);
-                    intent.putExtra("userEmail","user2");
-                    intent.putExtra("storeName","김치남");
-                    v.getContext().startActivity(intent);
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener(){
+//                @Override
+//                public void onClick(View v){
+//                    int pos = getAdapterPosition();
+//                    Intent intent = new Intent(v.getContext(),DeleteShoppingLIstPopupActivity.class);
+//                    intent.putExtra("userEmail","user2");
+//                    intent.putExtra("storeName","김치남");
+//                    v.getContext().startActivity(intent);
+//                }
+//            });
         }
     }
 

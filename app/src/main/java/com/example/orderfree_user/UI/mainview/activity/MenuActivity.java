@@ -66,6 +66,8 @@ public class MenuActivity extends AppCompatActivity {
         String qrcodeParsing =mPref.getString("qrcodeParsing","");
         service = RetrofitClient.getClient().create(ServiceApi.class);
 
+        getData(new MenudataRequest(qrcodeParsing),-1);
+
         //뒤로가기 누르면 메인화면
         mGobackView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +123,7 @@ public class MenuActivity extends AppCompatActivity {
                 }
             }
         });
-        //getData(new MenudataRequest(qrcodeParsing),0);
+
     }
 
     private void getData(MenudataRequest data,int category) {
@@ -136,7 +138,7 @@ public class MenuActivity extends AppCompatActivity {
                     List<MenuData> tmpList=new ArrayList<>();
                     for(int i=0;i<list.size();i++)
                     {
-                        if(list.get(i).getmenuCategory()==category){
+                        if(list.get(i).getmenuCategory()==category||category==-1){
                             tmpList.add(list.get(i));
                         }
                     }
