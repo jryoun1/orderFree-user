@@ -62,7 +62,10 @@ public class CheckOrderActivity extends AppCompatActivity {
                 TextView store = findViewById(R.id.tv_checkorder_store);
                 TextView date = findViewById(R.id.tv_checkorder_date);
                 store.setText(response.body().getOwnerStoreName());
-                date.setText(response.body().getOrderedDate().substring(10) + response.body().getOrderedDate().substring(11, 16));
+                Log.e("date", response.body().getOrderedDate());
+                Log.e("date1", response.body().getOrderedDate().substring(10));
+                Log.e("date2", response.body().getOrderedDate().substring(11, 16));
+                date.setText(response.body().getOrderedDate().substring(0, 10) + "  " + response.body().getOrderedDate().substring(11, 16));
             }
 
             @Override
