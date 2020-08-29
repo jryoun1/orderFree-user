@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
 
-        android:text="num"
+        android:text="0"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/개"
@@ -118,7 +118,7 @@
         android:id="@+id/menu_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="0"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
