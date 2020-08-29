@@ -3,6 +3,8 @@ package com.example.orderfree_user.UI.order;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,13 @@ public class CheckOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_order);
         service = RetrofitClient.getClient().create(ServiceApi.class);
+        Button backBtn = findViewById(R.id.btn_back_check_order);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         Log.e("test", "test");
         getDatas();
     }
@@ -44,8 +53,6 @@ public class CheckOrderActivity extends AppCompatActivity {
             public void onResponse(Call<CheckOrderResponse> call, Response<CheckOrderResponse> response) {
                 Log.e("success", String.valueOf(response.code()));
                 data = response.body().getResultArray();
-                Log.e("data menu", data.get(0).getMenuName());
-                Log.e("data count", String.valueOf(data.get(0).getMenuCount()));
                 recyclerView = (RecyclerView)findViewById(R.id.recycler_ordercheck);
                 recyclerView.setHasFixedSize(true);
                 layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -55,7 +62,6 @@ public class CheckOrderActivity extends AppCompatActivity {
                 TextView store = findViewById(R.id.tv_checkorder_store);
                 TextView date = findViewById(R.id.tv_checkorder_date);
                 store.setText(response.body().getOwnerStoreName());
-                Log.e("date", response.body().getOrderedDate());
             }
 
             @Override

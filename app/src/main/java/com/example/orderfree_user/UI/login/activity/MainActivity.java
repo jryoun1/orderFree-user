@@ -15,7 +15,6 @@ import com.example.orderfree_user.UI.order.CheckOrderActivity;
 public class MainActivity extends AppCompatActivity {
     private Button mQRscanButton;
     private Button mOrderListButton;
-    private Button mSellStatusButton;
     private Button mPersonInfoButton;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         TextView mUserNameView = (TextView)findViewById(R.id.userName);
         mQRscanButton = (Button)findViewById(R.id.QRcode_scan);
         mOrderListButton = (Button)findViewById(R.id.main_orderlist);
-        mSellStatusButton = (Button)findViewById(R.id.main_sellstatus);
         mPersonInfoButton = (Button)findViewById(R.id.main_person_info);
 
         Intent intent = getIntent();
@@ -49,12 +47,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CheckOrderActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        mSellStatusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
             }
         });
 
