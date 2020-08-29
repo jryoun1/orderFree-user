@@ -86,7 +86,6 @@ public class MenuActivity extends AppCompatActivity {
                 if(mGobackView.isClickable()){
                     Intent intent = new Intent(getApplicationContext(),ConfirmOrderActivity.class);
                     startActivity(intent);
-                    finish();
                 }
             }
         });
