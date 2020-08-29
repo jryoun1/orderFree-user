@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.orderfree_user.R;
+import com.example.orderfree_user.UI.order.CheckOrderActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button mQRscanButton;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         mOrderListButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CheckOrderActivity.class);
+                startActivity(intent);
             }
         });
 

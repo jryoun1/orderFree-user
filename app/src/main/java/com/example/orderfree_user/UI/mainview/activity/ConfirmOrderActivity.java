@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.orderfree_user.R;
+import com.example.orderfree_user.UI.Payment.PaymentActivity;
 import com.example.orderfree_user.network.RetrofitClient;
 import com.example.orderfree_user.network.ServiceApi;
 import com.example.orderfree_user.UI.mainview.data.ConfirmOrderData;
@@ -38,6 +39,7 @@ public class ConfirmOrderActivity extends AppCompatActivity {
     private TextView menuPrice;
     private TextView goBack;
     private Button confirmButton;
+    List<ConfirmOrderData> list=new ArrayList<>();
 
 
     @Override
@@ -73,6 +75,16 @@ public class ConfirmOrderActivity extends AppCompatActivity {
                 }
             }
         });
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+                intent.putExtra("store", ownerStoreName);
+                intent.putExtra("price", getItemTotalPrice(list));
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -81,7 +93,6 @@ public class ConfirmOrderActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ConfirmOrderDataResponse> call, Response<ConfirmOrderDataResponse> response) {
                 ConfirmOrderDataResponse result = response.body();
-                List<ConfirmOrderData> list=new ArrayList<>();
                 if (result.getCode()==200) {
                     list.clear();
                     list = result.getObject();

@@ -1,5 +1,7 @@
 package com.example.orderfree_user.network;
 
+import com.example.orderfree_user.UI.Payment.data.ConfirmOrderData;
+import com.example.orderfree_user.UI.Payment.data.ConfirmOrderResponse;
 import com.example.orderfree_user.UI.login.data.FindEmailData;
 import com.example.orderfree_user.UI.login.data.FindEmailResponse;
 import com.example.orderfree_user.UI.login.data.FindPasswordData;
@@ -60,4 +62,8 @@ public interface ServiceApi {
 
     @POST("/usermain/ordercheck")
     Call<CheckOrderResponse> checkOrder(@Body CheckOrderData data);
+
+    @POST("/usermain/confirmOrder")
+    Call<ConfirmOrderResponse> confirmOrder(@Body ConfirmOrderData data);
+
 }
