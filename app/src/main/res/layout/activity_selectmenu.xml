@@ -19,7 +19,7 @@
 
         android:text="뒤로"
         android:textColor="#ffff00"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
 
         android:text="식당이름"
         android:textColor="#ffff00"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
@@ -61,7 +61,6 @@
         android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="16dp"
         android:background="@color/cardview_light_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_menuPicture" />
@@ -70,7 +69,6 @@
         android:id="@+id/view3"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="16dp"
         android:background="@color/cardview_light_background"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -81,14 +79,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
         android:layout_marginRight="20dp"
         android:padding="10dip"
         android:text="메뉴 이름"
         android:textColor="#ffff00"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
@@ -98,14 +96,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
 
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:padding="10dip"
         android:text="수량"
         android:textColor="#ffffff"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -119,7 +117,7 @@
         android:padding="10dip"
         android:text="기본"
         android:textColor="#ffffff"
-        android:textSize="15sp"
+        android:textSize="13sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
@@ -160,10 +158,9 @@
 
     <ImageView
         android:id="@+id/imageView_menuPicture"
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
         android:layout_marginRight="20dp"
         android:background="#ffffff"
         android:inputType="textEmailAddress"
@@ -175,9 +172,8 @@
     <TextView
         android:id="@+id/textView_menuInfo"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="16dp"
         android:layout_marginRight="20dp"
         android:hint="메뉴 설명"
         android:padding="10dp"
@@ -193,7 +189,6 @@
         android:layout_height="43dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="56dp"
         android:background="@drawable/button_round_yellow"
         android:text="담기"
         android:textColor="#000000"
@@ -201,7 +196,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <LinearLayout
         android:id="@+id/layio"
@@ -210,7 +206,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_margin="9dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/white_black_button"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,8 +215,8 @@
 
        <Button
            android:id="@+id/minus_button"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
+           android:layout_width="40dp"
+           android:layout_height="40dp"
            android:text="-"
            android:background="@drawable/white_black_button"
            android:textColor="#000000"
@@ -243,8 +238,8 @@
 
         <Button
             android:id="@+id/plus_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/white_black_button"
             android:text="+"
             android:textColor="#000000"

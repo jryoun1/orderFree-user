@@ -57,10 +57,10 @@ public class MenuActivity extends AppCompatActivity {
         Category1=(TextView)findViewById(R.id.category1);
         Category2=(TextView)findViewById(R.id.category2);
         Category3=(TextView)findViewById(R.id.category3);
-        Category0.setText("단품메뉴");
-        Category1.setText("세트메뉴");
-        Category2.setText("음료메뉴");
-        Category3.setText("사이드메뉴");
+        Category0.setText("조식뷔페");
+        Category1.setText("A코너");
+        Category2.setText("B코너");
+        Category3.setText("푸드코트");
         //listview =(ScrollView)findViewById(R.id.listview);
         SharedPreferences mPref = getSharedPreferences("qrCodeRecord", MODE_PRIVATE);
         String qrcodeParsing =mPref.getString("qrcodeParsing","");
