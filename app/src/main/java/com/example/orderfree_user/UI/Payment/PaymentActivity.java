@@ -33,6 +33,13 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         service = RetrofitClient.getClient().create(ServiceApi.class);
+        Button back = findViewById(R.id.btn_back_payment);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         Button btn = findViewById(R.id.btn_done_payment);
         TextView price = findViewById(R.id.payment_price);
         price.setText(String.valueOf(getIntent().getIntExtra("price", 0)));
