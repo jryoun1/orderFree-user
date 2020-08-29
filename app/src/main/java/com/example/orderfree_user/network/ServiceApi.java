@@ -2,6 +2,10 @@ package com.example.orderfree_user.network;
 
 import com.example.orderfree_user.UI.Payment.data.ConfirmOrderData;
 import com.example.orderfree_user.UI.Payment.data.ConfirmOrderResponse;
+import com.example.orderfree_user.UI.login.data.ChangePasswordData;
+import com.example.orderfree_user.UI.login.data.ChangePasswordResponse;
+import com.example.orderfree_user.UI.login.data.DeleteAccountData;
+import com.example.orderfree_user.UI.login.data.DeleteAccountResponse;
 import com.example.orderfree_user.UI.login.data.FindEmailData;
 import com.example.orderfree_user.UI.login.data.FindEmailResponse;
 import com.example.orderfree_user.UI.login.data.FindPasswordData;
@@ -14,6 +18,8 @@ import com.example.orderfree_user.UI.login.data.LoginData;
 import com.example.orderfree_user.UI.login.data.LoginResponse;
 import com.example.orderfree_user.UI.mainview.data.BasketDataRequest;
 import com.example.orderfree_user.UI.mainview.data.BasketDataResponse;
+import com.example.orderfree_user.UI.mainview.data.CheckPasswordData;
+import com.example.orderfree_user.UI.mainview.data.CheckPasswordResponse;
 import com.example.orderfree_user.UI.mainview.data.ConfirmOrderDataRequest;
 import com.example.orderfree_user.UI.mainview.data.ConfirmOrderDataResponse;
 import com.example.orderfree_user.UI.mainview.data.DeleteShoppingListRequest;
@@ -66,4 +72,12 @@ public interface ServiceApi {
     @POST("/usermain/confirmOrder")
     Call<ConfirmOrderResponse> confirmOrder(@Body ConfirmOrderData data);
 
+    @POST("/main/info/checkpwd")
+    Call<CheckPasswordResponse> userCheckPassowrd(@Body CheckPasswordData data);
+
+    @POST("/owner/login/changepwd")
+    Call<ChangePasswordResponse> userChangePassword(@Body ChangePasswordData data);
+
+    @POST("/main/info/withdraw")
+    Call<DeleteAccountResponse> userDeleteAccount(@Body DeleteAccountData data);
 }

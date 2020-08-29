@@ -35,6 +35,9 @@
         <activity android:name=".UI.Payment.IamportActivity" />
         <activity android:name=".UI.order.OrderCompleteActivity" />
         <activity android:name=".UI.order.CheckOrderActivity" />
+        <activity android:name=".UI.login.activity.ChangePasswordActivity" />
+        <activity android:name=".UI.mainview.activity.personInfoActivity" />
+        <activity android:name=".UI.login.activity.AccountDeleteActivity" />
     </application>
 
 </manifest>
