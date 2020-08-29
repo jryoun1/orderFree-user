@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.orderfree_user.R;
+import com.example.orderfree_user.UI.mainview.activity.personInfoActivity;
 import com.example.orderfree_user.UI.order.CheckOrderActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String userName = intent.getStringExtra("userName");
+        String userEmail = intent.getStringExtra("userEmail");
+
 
         if(intent.hasExtra("userName")) {
             mUserNameView.setText(userName);
@@ -55,17 +58,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences mPref = getSharedPreferences("autoLoginRecord",MODE_PRIVATE);
                 Boolean autoLoginCheck = mPref.getBoolean("autoLoginCheck",false);
-
-                /**Intent intent = new Intent(getApplicationContext(), com.example.orderfree_user.UI.mainview.activity.personInfoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), personInfoActivity.class);
                 if(autoLoginCheck==false){// 자동로그인이 체크되어 있지 않거나 로그인이 첫번째인 경우는 기존에 전달받은 이름을 사용
                     intent.putExtra("userName",userName);
+                    intent.putExtra("userEmail",userEmail);
                     startActivity(intent);
                 }else{ //자동로그인이 체크되어있는 경우 SharedPreferences에서 이름 가져오면 됨
-                    String userName = mPref.getString("userName",null);
-                    intent.putExtra("userName",userName);
+                    String ownerName = mPref.getString("userName",null);
+                    String ownerEmail = mPref.getString("userEmail",null);
+                    intent.putExtra("userName",ownerName);
+                    intent.putExtra("userEmail",ownerEmail);
                     startActivity(intent);
-                }**/
-
+                }
             }
         });
     }
