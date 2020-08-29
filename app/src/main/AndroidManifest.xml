@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.orderfree_user">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true">
+
+        <activity android:name=".UI.login.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UI.login.activity.LoginActivity"/>
+        <activity android:name=".UI.login.activity.JoinActivity" />
+        <activity android:name=".UI.login.activity.MainActivity" />
+        <activity android:name=".UI.login.activity.FindEmailActivity"/>
+        <activity android:name=".UI.login.activity.FindEmailResultActivity"/>
+        <activity android:name=".UI.login.activity.FindPasswordActivity"/>
+        <activity android:name=".UI.mainview.activity.SelectMenuActivity"/>
+        <activity android:name=".UI.mainview.activity.QRScannerActivity"/>
+        <activity android:name=".UI.mainview.activity.MenuActivity"/>
+        <activity android:name=".UI.mainview.activity.ConfirmOrderActivity"/>
+        <activity android:name=".UI.mainview.activity.DeleteShoppingLIstPopupActivity"/>
+        <activity android:name=".UI.Payment.PaymentActivity" />
+        <activity android:name=".UI.Payment.IamportActivity" />
+        <activity android:name=".UI.order.OrderCompleteActivity" />
+        <activity android:name=".UI.order.CheckOrderActivity" />
+    </application>
+
+</manifest>

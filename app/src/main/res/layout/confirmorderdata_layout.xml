@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:onClick="mOnPopupClick">
+
+        <TextView
+            android:id="@+id/textView_menu"
+            android:layout_width="161dp"
+            android:layout_height="40dp"
+            android:background="#333333"
+            android:paddingLeft="20dp"
+            android:text="menu"
+            android:textColor="#FFFFFF"
+            android:textSize="11pt" />
+
+        <TextView
+            android:id="@+id/count_menu"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="#333333"
+            android:text="?"
+            android:paddingLeft="20dp"
+
+            android:textColor="#FFFFFF"
+            android:textSize="11pt" />
+
+        <TextView
+            android:id="@+id/개"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#333333"
+            android:text="개"
+            android:textColor="#FFFFFF"
+            android:textSize="11pt" />
+
+        <TextView
+            android:id="@+id/price_menu"
+            android:layout_width="111dp"
+            android:layout_height="40dp"
+            android:background="#333333"
+            android:text="?"
+            android:paddingLeft="20dp"
+            android:textColor="#FFFFFF"
+            android:textSize="11pt" />
+
+        <TextView
+            android:id="@+id/원"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#333333"
+            android:text="원"
+            android:textColor="#FFFFFF"
+            android:textSize="11pt" />
+    </LinearLayout>
+</LinearLayout>
