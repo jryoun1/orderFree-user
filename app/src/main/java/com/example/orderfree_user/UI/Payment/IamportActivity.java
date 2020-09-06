@@ -27,7 +27,7 @@ public class IamportActivity extends AppCompatActivity {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setSupportMultipleWindows(true);
 
-        mainWebView.loadUrl("http://ec2-3-34-156-73.ap-northeast-2.compute.amazonaws.com:3000/pay");
+        mainWebView.loadUrl("localhost:8080");
 
     }
 
